@@ -1,10 +1,11 @@
 import torch
 from models.model import Net
 from utils.preprocess import preprocess_image
+from utils.utils import load_checkpoint
 
 model = Net()
-model_path = r"checkpoints\mnist_model_epoch_10.pth"
-model.load_state_dict(torch.load(model_path))
+model_path = r"checkpoints\checkpoint_1\best accuracy\mnist_model_best.pth"
+model, _, _ = load_checkpoint(model_path, model, None)
 model.eval()
 
 def predict(image_path):

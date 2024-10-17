@@ -1,6 +1,7 @@
 import torch
 from models.model import Net
 from data.dataset import get_data_loader
+from utils.utils import load_checkpoint
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -22,7 +23,8 @@ def eval(model_path, batch_size=64):
     train_loader, valid_loader = get_data_loader(batch_size)
     
     model = Net()
-    model.load_state_dict(torch.load(model_path))
+    model, _, epoch = load_checkpoint(model_path, model, None)
+    print(f'Model loaded from epoch {epoch+1}')
     model.to(device)
     model.eval()
 

@@ -1,14 +1,25 @@
+import os
 from training.train import train_model
-from training.evaluation import evaluate_model
+from training.evaluation import eval
 
 if __name__ == "__main__":
     trainer = {
-        'epochs': 10,
+        'epochs': 1,
         'batch_size': 64,
         'learning_rate': 0.001,
-        'model_path': './checkpoints',
+        'save_dir': 'checkpoints',
+        'model_path': r'checkpoints\checkpoint_3\best accuracy\mnist_model_best.pth',
         'eval': True
     }
-    train_model(trainer['epochs'], trainer['batch_size'], trainer['learning_rate'], trainer['model_path'], trainer['eval'])
+    train_model(
+        trainer['epochs'], 
+        trainer['batch_size'], 
+        trainer['learning_rate'], 
+        trainer['save_dir'], 
+        trainer['eval']
+    )
 
-    evaluate_model(f'./checkpoints/mnist_model_epoch_{trainer["epochs"]}.pth', batch_size=32)
+    eval(
+        trainer['model_path'], 
+        batch_size=32
+    )
