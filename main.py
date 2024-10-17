@@ -3,7 +3,7 @@ from training.evaluation import evaluate_model
 
 if __name__ == "__main__":
     trainer = {
-        'epochs': 5,
+        'epochs': 10,
         'batch_size': 64,
         'learning_rate': 0.001,
         'model_path': './checkpoints',

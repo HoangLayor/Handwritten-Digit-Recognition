@@ -8,6 +8,7 @@ import os
 
 def train_model(epochs=5, batch_size=64, learning_rate=0.001, model_path='./checkpoints', eval=False):
     train_loader, valid_loader = get_data_loader(batch_size)
+    train_N, valid_N = len(train_loader), len(valid_loader)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Using device: {device}")
@@ -18,11 +19,10 @@ def train_model(epochs=5, batch_size=64, learning_rate=0.001, model_path='./chec
     loss_function = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=learning_rate)
 
-
     for epoch in range(epochs):
         model.train()
-        loss = 0.0
-        accuracy = 0.0
+        train_loss, valid_loss = 0.0, 0.0
+        train_acc, valid_acc = 0.0, 0.0
 
         for image, label in train_loader:
             image, label = image.to(device), label.to(device)
@@ -33,23 +33,19 @@ def train_model(epochs=5, batch_size=64, learning_rate=0.001, model_path='./chec
             batch_loss.backward()
             optimizer.step()
 
-            loss += batch_loss.item()
-        print(f"Epoch {epoch+1}/{epochs}, Loss: {loss / len(train_loader):.4f},", end = " ")
+            train_loss += batch_loss.item()
+        train_acc = evaluate_model(model, train_loader)
+        print(f"Epoch {epoch+1}/{epochs}:\nTrain - Loss: {train_loss / len(train_loader):.4f}, Accuracy: {train_acc:.4f}")
 
         if eval:
-            correct = 0
-            total = 0
-
             with torch.no_grad():
                 for image, label in valid_loader:
                     image, label = image.to(device), label.to(device)
-
                     output = model(image)
-                    _, predicted = torch.max(output.data, 1)
-                    total += label.size(0)
-                    correct += (predicted == label).sum().item()
-                
-            print(f'Accuracy: {100 * correct / total:.2f}%')
+
+                    valid_loss += loss_function(output, label).item()
+            valid_acc = evaluate_model(model, valid_loader)
+            print(f"Valid - Loss: {valid_loss / len(valid_loader):.4f}, Accuracy: {valid_acc:.4f}")
     
     if not os.path.exists(model_path):
         os.makedirs(model_path)
