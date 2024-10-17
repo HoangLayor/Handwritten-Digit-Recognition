@@ -11,4 +11,4 @@ if __name__ == "__main__":
     }
     train_model(trainer['epochs'], trainer['batch_size'], trainer['learning_rate'], trainer['model_path'], trainer['eval'])
 
-    evaluate_model(f'./checkpoints/mnist_model_{trainer["epochs"]}.pth', batch_size=32)
+    evaluate_model(f'./checkpoints/mnist_model_epoch_{trainer["epochs"]}.pth', batch_size=32)

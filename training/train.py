@@ -54,4 +54,4 @@ def train_model(epochs=5, batch_size=64, learning_rate=0.001, model_path='./chec
     if not os.path.exists(model_path):
         os.makedirs(model_path)
         
-    torch.save(model.state_dict(), f'{model_path}/mnist_model_{epochs}.pth')
+    torch.save(model.state_dict(), f'{model_path}/mnist_model_epoch_{epochs}.pth')
