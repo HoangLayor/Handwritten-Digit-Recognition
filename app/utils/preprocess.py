@@ -11,7 +11,9 @@ def preprocess_image(image):
         # transforms.Normalize((0.1307,), (0.3081,))
     ])
 
-    image = Image.open(image)
+    if type(image) == str:
+        image = Image.open(image)
+
     image = transform(image)
 
     return image

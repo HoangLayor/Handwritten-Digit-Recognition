@@ -1,3 +1,7 @@
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 import torch
 import torch.optim as optim
 import torch.nn as nn
@@ -5,7 +9,6 @@ from models.model import Net
 from data.dataset import get_data_loader
 from training.evaluation import evaluate_model
 from utils.utils import save_checkpoint, create_checkpoint_dir
-import os
 
 def train_model(epochs=5, batch_size=64, learning_rate=0.001, save_dir='./checkpoints', eval=True):
     # Create the save_dir
