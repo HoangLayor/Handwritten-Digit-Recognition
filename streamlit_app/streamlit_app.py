@@ -57,7 +57,6 @@ with col2:
 text = """
 This is a small app for handwritten digit recognition and recognition developed for fun. It uses a small DL model trained from scratch.
 You can draw a digit (or whatever you want) and the model will try to understand what is it.
-You can use the slider above to show bounding boxes with a probability higher than the threshold.
 If you want to know how the app works in more detail, you are welcome to read "About" page.
 Enjoy! :)
 """
