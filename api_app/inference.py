@@ -16,7 +16,3 @@ def predict(image):
         predicted = torch.argmax(output, dim=1)
 
     return predicted.item()
-
-# # Test
-# image_path = r"test_images\01.png"
-# print(predict(image_path))

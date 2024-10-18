@@ -26,7 +26,7 @@ async def upload_image(file: UploadFile = File(...)):
     return {"image": image}
     
 # API để upload file ảnh và nhận diện
-@app.post("/predict_123/")
+@app.post("/predict-image/")
 async def predict(file: UploadFile = File(...)):
     # Đọc file ảnh
     image = Image.open(io.BytesIO(await file.read()))
