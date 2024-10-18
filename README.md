@@ -29,6 +29,9 @@ pip install -r requirements.txt
 ├── 📄 main.py
 └── 📄 mnist.ipynb
 ```
+```python
+python main.py
+```
 # ***Deploy***
 ## API
 ```
@@ -42,6 +45,9 @@ pip install -r requirements.txt
 ├── 📄 inference.py
 └── 📄 run.py
 ```
+```python
+python run.py
+```
 ## Streamlit
 ```
 📂 streamlit_app
@@ -52,4 +58,7 @@ pip install -r requirements.txt
 │   ├── 📄 preprocess.py
 │   └── 📄 utils.py
 └── 📄 streamlit_app.py
+```
+```python
+streamlit run streamlit_app/streamlit_app.py
 ```
