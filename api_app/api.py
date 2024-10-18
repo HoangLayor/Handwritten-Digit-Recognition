@@ -12,7 +12,7 @@ import asyncio
 app = FastAPI()
 
 model = Net()
-model, _, _ = load_checkpoint(r'checkpoints\checkpoint_1\best accuracy\mnist_model_best.pth', model, None)
+model, _, _ = load_checkpoint(r'src\checkpoints\checkpoint_1\best accuracy\mnist_model_best.pth', model, None)
 
 # API để upload file ảnh
 @app.post("/upload-image/")

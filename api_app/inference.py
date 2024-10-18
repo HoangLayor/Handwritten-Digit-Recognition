@@ -4,8 +4,7 @@ from utils.preprocess import preprocess_image
 from utils.utils import load_checkpoint
 
 model = Net()
-model = Net()
-model, _, _ = load_checkpoint(r"checkpoints\checkpoint_1\best accuracy\mnist_model_best.pth", model, None)
+model, _, _ = load_checkpoint(r"src\checkpoints\checkpoint_1\best accuracy\mnist_model_best.pth", model, None)
 # model.eval()
 
 def predict(image):
