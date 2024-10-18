@@ -1,11 +1,11 @@
-# Handwritten Digit Recognition using PyTorch
-
-This project trains a simple DL model on the MNIST dataset to recognize handwritten digits.
+># Handwritten Digit Recognition using PyTorch
+>>This project trains a simple DL model on the MNIST dataset to recognize handwritten digits.
 
 ## Installation
 ```python
 pip install -r requirements.txt
 ```
+----
 # ***Training & Evaluation***
 ```
 📂 src
@@ -32,6 +32,7 @@ pip install -r requirements.txt
 ```python
 python src/main.py
 ```
+----
 # ***Deploy***
 ## API
 ```
