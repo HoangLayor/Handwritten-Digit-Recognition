@@ -29,6 +29,7 @@ pip install -r requirements.txt
 ├── 📄 main.py
 └── 📄 mnist.ipynb
 ```
+__Train & Eval__
 ```python
 python src/main.py
 ```
@@ -46,6 +47,7 @@ python src/main.py
 ├── 📄 inference.py
 └── 📄 run.py
 ```
+__Run FastAPI__
 ```python
 python api_app/run.py
 ```
@@ -60,6 +62,7 @@ python api_app/run.py
 │   └── 📄 utils.py
 └── 📄 streamlit_app.py
 ```
+__Run streamlit app__
 ```python
 streamlit run streamlit_app/streamlit_app.py
 ```
