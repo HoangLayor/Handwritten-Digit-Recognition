@@ -46,7 +46,7 @@ python src/main.py
 └── 📄 run.py
 ```
 ```python
-python run.py
+python api_app/run.py
 ```
 ## Streamlit
 ```
