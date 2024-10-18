@@ -30,7 +30,7 @@ pip install -r requirements.txt
 └── 📄 mnist.ipynb
 ```
 ```python
-python main.py
+python src/main.py
 ```
 # ***Deploy***
 ## API
