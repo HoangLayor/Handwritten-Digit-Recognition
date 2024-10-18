@@ -4,11 +4,11 @@ from training.evaluation import eval
 
 if __name__ == "__main__":
     trainer = {
-        'epochs': 1,
+        'epochs': 10,
         'batch_size': 64,
         'learning_rate': 0.001,
-        'save_dir': 'checkpoints',
-        'model_path': r'checkpoints\checkpoint_3\best accuracy\mnist_model_best.pth',
+        'save_dir': r'.\checkpoints',
+        'model_path': r'.\checkpoints\checkpoint_1\best accuracy\mnist_model_best.pth',
         'eval': True
     }
     train_model(
@@ -21,5 +21,5 @@ if __name__ == "__main__":
 
     eval(
         trainer['model_path'], 
-        batch_size=32
+        batch_size=64
     )

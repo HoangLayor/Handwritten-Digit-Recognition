@@ -14,13 +14,6 @@ app = FastAPI()
 model = Net()
 model, _, _ = load_checkpoint(r'checkpoints\checkpoint_1\best accuracy\mnist_model_best.pth', model, None)
 
-async def predict(img_tensor):
-    with torch.no_grad():
-        output = model(img_tensor.unsqueeze(0))
-        predicted = torch.argmax(output, dim=1)
-
-    return predicted
-
 # API để upload file ảnh
 @app.post("/upload-image/")
 async def upload_image(file: UploadFile = File(...)):
@@ -31,18 +24,6 @@ async def upload_image(file: UploadFile = File(...)):
     image = Image.open(io.BytesIO(image_data))
 
     return {"image": image}
-
-@app.post('/predict/')
-async def predict(file: UploadFile = File(...)):
-    try:
-        image_bytes = await file.read()
-        image = Image.open(io.BytesIO(image_bytes))
-
-        prediction = predict(image)
-        return {'prediction': prediction}
-    except Exception as e:
-        return {'error': str(e)}
-    
     
 # API để upload file ảnh và nhận diện
 @app.post("/predict_123/")
@@ -51,10 +32,9 @@ async def predict(file: UploadFile = File(...)):
     image = Image.open(io.BytesIO(await file.read()))
 
     img_tensor = preprocess_image(image)
-    predicted = await predict(img_tensor)
-    # with torch.no_grad():
-    #     output = model(img_tensor.unsqueeze(0))
-    #     predicted = torch.argmax(output, dim=1)
+    with torch.no_grad():
+        output = model(img_tensor.unsqueeze(0))
+        predicted = torch.argmax(output, dim=1)
 
     return {"prediction": predicted.item()}
     

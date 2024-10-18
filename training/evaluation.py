@@ -28,7 +28,8 @@ def eval(model_path, batch_size=64):
     
     model = Net()
     model, _, epoch = load_checkpoint(model_path, model, None)
-    print(f'Model loaded from epoch {epoch+1}')
+    print(f'---------------------------')
+    print(f'Model loaded from epoch {epoch}')
     model.to(device)
     model.eval()
 
