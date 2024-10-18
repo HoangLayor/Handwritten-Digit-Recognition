@@ -4,6 +4,7 @@ opencv-python==4.10.0.84
 torch==2.4.1
 torchaudio==2.4.1
 torchvision==0.19.1
+pillow==10.2.0
 fastapi==0.115.2
 uvicorn==0.32.0
 requests==2.32.3

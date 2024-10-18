@@ -1,5 +1,4 @@
 import torch
-from utils.preprocess import transform_image
 
 def predict(model, image):
     with torch.no_grad():
