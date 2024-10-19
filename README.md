@@ -51,6 +51,7 @@ __Run FastAPI__
 ```python
 python api_app/run.py
 ```
+- [127.0.0.1:8000](http//127.0.0.1:8000/docs)
 ## Streamlit
 ```
 📂 streamlit_app
