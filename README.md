@@ -66,3 +66,4 @@ __Run streamlit app__
 ```python
 streamlit run streamlit_app/streamlit_app.py
 ```
+- [https://hoanglayor-handwritten-digit--streamlit-appstreamlit-app-jmbim3.streamlit.app/](https://hoanglayor-handwritten-digit--streamlit-appstreamlit-app-jmbim3.streamlit.app/)
